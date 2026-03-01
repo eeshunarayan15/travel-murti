@@ -18,10 +18,10 @@ const Home = () => {
       <SpiritualSubPackages />
       <LatestTourPackages />
       <UnescoWorldHeritageSites />
-      {/* <Testimonials />
-      <RelatedBlogs/>
-      <WhyChooseUs /> */}
-      {/* <FrequentlyAskedQuestion /> */}
+      <Testimonials />
+      {/* <RelatedBlogs/>
+      <WhyChooseUs /> 
+      <FrequentlyAskedQuestion /> */}
     </div>
   );
 }
