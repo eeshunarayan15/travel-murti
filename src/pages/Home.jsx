@@ -19,9 +19,9 @@ const Home = () => {
       <LatestTourPackages />
       <UnescoWorldHeritageSites />
       <Testimonials />
-      {/* <RelatedBlogs/> */}
-      {/* <WhyChooseUs /> */}
-      {/* <FrequentlyAskedQuestion /> */}
+      <RelatedBlogs/>
+      <WhyChooseUs />
+      <FrequentlyAskedQuestion />
     </div>
   );
 }
