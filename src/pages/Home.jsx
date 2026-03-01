@@ -21,7 +21,7 @@ const Home = () => {
       <Testimonials />
       {/* <RelatedBlogs/> */}
       <WhyChooseUs /> 
-      {/* <FrequentlyAskedQuestion /> */}
+      <FrequentlyAskedQuestion />
     </div>
   );
 }
