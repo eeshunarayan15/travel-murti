@@ -19,7 +19,7 @@ const Home = () => {
       <LatestTourPackages />
       <UnescoWorldHeritageSites />
       <Testimonials />
-      {/* <RelatedBlogs/> */}
+      <RelatedBlogs/>
       <WhyChooseUs /> 
       <FrequentlyAskedQuestion />
     </div>

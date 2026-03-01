@@ -1,33 +1,29 @@
-import { useState, useEffect, useRef } from "react";
 
-// ✅ Change this to your actual API base URL
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+import { fetchBlogs } from "@/redux/thunk/blogThunk";
+import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-// Fallback placeholder image if no image in blog data
+import { Link } from "react-router-dom";
+
 const PLACEHOLDER =
   "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80";
 
 export default function RelatedBlogs() {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const scrollRef = useRef(null);
+  const dispatch = useDispatch();
 
+  // ✅ Redux state
+  const blogs = useSelector((state) => state.blogs.blogs);
+  const status = useSelector((state) => state.blogs.status);
+  const error = useSelector((state) => state.blogs.error);
+  const loading = status === "idle" || status === "loading";
+
+  // ✅ Fetch only once
   useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const res = await fetch(`${API_BASE}/blogs?published=true`);
-        if (!res.ok) throw new Error("Failed to fetch");
-        const data = await res.json();
-        setBlogs(data);
-      } catch (err) {
-        setError("Could not load blogs.");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchBlogs();
-  }, []);
+    if (status === "idle") {
+      dispatch(fetchBlogs());
+    }
+  }, [status, dispatch]);
 
   const formatDate = (dateStr) => {
     if (!dateStr) return "";
@@ -143,9 +139,9 @@ export default function RelatedBlogs() {
             </h2>
 
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              {/* Read All button */}
-              <a
-                href="/blog"
+              {/* ✅ Link instead of <a> — no page reload */}
+              <Link
+                to="/blog"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -179,7 +175,7 @@ export default function RelatedBlogs() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </a>
+              </Link>
 
               {/* Scroll arrows */}
               <button className="scroll-btn" onClick={() => scroll("left")}>
@@ -265,9 +261,10 @@ export default function RelatedBlogs() {
                 </p>
               ) : (
                 blogs.map((blog) => (
-                  <a
+                  // ✅ Link instead of <a href> — no page reload
+                  <Link
                     key={blog._id}
-                    href={`/blog/${blog.slug}`}
+                    to={`/blog/${blog.slug}`}
                     className="blog-card"
                     style={{
                       minWidth: "300px",
@@ -362,7 +359,7 @@ export default function RelatedBlogs() {
                         </span>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 ))
               )}
             </div>

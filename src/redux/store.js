@@ -3,6 +3,7 @@ import packagesReducer from './slices/packagesSlice';
 import subPackagesReducer from './slices/subPackagesSlice';
 import dealReducer from './slices/dealSlice';
 import userReducer from './slices/userSlice';
+import blogReducer from '@/redux/slices/blogSlice'
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     subPackages: subPackagesReducer,
     deal: dealReducer,
     user: userReducer,
+    blogs: blogReducer,
   },
 });
 
