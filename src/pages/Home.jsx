@@ -12,16 +12,16 @@ import WhyChooseUs from "@/components/WhyChooseUs/WhyChooseUs";
 const Home = () => {
   return (
     <div>
-      <TripPlannerModal />
+      {/* <TripPlannerModal /> */}
       <HeroSection />
       <DealOfTheDay />
       <SpiritualSubPackages />
       <LatestTourPackages />
       <UnescoWorldHeritageSites />
       <Testimonials />
-      <RelatedBlogs/>
-      <WhyChooseUs />
-      <FrequentlyAskedQuestion />
+      {/* <RelatedBlogs/> */}
+      {/* <WhyChooseUs /> */}
+      {/* <FrequentlyAskedQuestion /> */}
     </div>
   );
 }
