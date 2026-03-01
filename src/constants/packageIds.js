@@ -1,0 +1,1 @@
+export const SPIRITUAL_PACKAGE_ID = "6718db46c8039b655f222f5d";

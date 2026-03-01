@@ -1,0 +1,69 @@
+{
+  "baseUrl": {
+    "production": "https://travel-murti.onrender.com/api",
+    "local": "http://localhost:4000/api",
+    "staging": "https://travel-murti.onrender.com/api"
+  },
+  "auth": {
+    "register": "/users/register",
+    "login": "/users/login",
+    "profile": "/users/profile",
+    "forgotPassword": "/users/forgot-password",
+    "verifyOtp": "/users/verify-otp",
+    "resetPassword": "/users/reset-password"
+  },
+  "users": {
+    "list": "/users",
+    "delete": "/users/{id}",
+    "update": "/users/{id}",
+    "toggleActive": "/users/{id}/toggle-active",
+    "unlock": "/users/{id}/unlock"
+  },
+  "packages": {
+    "list": "/packages",
+    "create": "/packages",
+    "update": "/packages/{id}",
+    "delete": "/packages/{id}"
+  },
+  "subPackages": {
+    "list": "/subpackages",
+    "byPackage": "/subpackages/package/{packageId}",
+    "details": "/subpackages/{subPackageId}",
+    "create": "/subpackages",
+    "update": "/subpackages/{id}",
+    "delete": "/subpackages/{id}",
+    "reorder": "/subpackages/reorder",
+    "dealOfTheDay": "/subpackages/deal-of-the-day",
+    "latest": "/subpackages/latest-tour-packages",
+    "parent": "/subpackages/parent/{parentId}"
+  },
+  "jobs": {
+    "list": "/jobs",
+    "details": "/jobs/{id}",
+    "bySlug": "/careers/{slug}",
+    "create": "/jobs",
+    "update": "/jobs/{id}",
+    "delete": "/jobs/{id}"
+  },
+  "contacts": {
+    "create": "/contact",
+    "list": "/contact",
+    "details": "/contact/{id}",
+    "update": "/contact/{id}",
+    "delete": "/contact/{id}"
+  },
+  "enquiries": {
+    "create": "/enquiry",
+    "list": "/enquiries",
+    "delete": "/enquiries/{id}"
+  },
+  "seo": { "sitemap": "/sitemap.xml", "robots": "/robots.txt" },
+  "chatbot": { "sendLead": "/send-email" },
+  "blogs": {
+    "list": "/blogs",
+    "bySlug": "/blogs/slug/{slug}",
+    "create": "/blogs",
+    "update": "/blogs/{id}",
+    "delete": "/blogs/{id}"
+  }
+}
